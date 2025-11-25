@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto Slab', sans-serif;
+  line-height: 1.5;
+
+  color: #ebe7ef;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #833ab4;
+  background: linear-gradient(
+    180deg,
+    #833ab4 0%,
+    #fd1d1d 50%,
+    #fcb045 100%
+  );
+  background-repeat: repeat;
+  background-size: 100% 100%, 30% 30%, 100% 100%;
+  min-height: 110rem;
+}
+
+/* HEADER index.html, not react component  */
+
+/* header's tic tac toe board with paw images  */
+.main-header_gameboard_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-header_gameboard_cell {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* credit for paw print: https://pixabay.com/illustrations/paw-pattern-wallpaper-squares-5992572/  */
+
+.main-header_gameboard_cell img {
+  width: auto; /* Changed from 100% */
+  height: 90px;
+  object-fit: cover;
+}
+
+.main-header_gameboard_cell:nth-child(1) img {
+  position: absolute;
+  left: -5px;
+  top: -2px;
+}
+
+.main-header_gameboard_cell:nth-child(2) img {
+  position: absolute;
+  left: -58px;
+  top: -2px;
+}
+
+.main-header_gameboard_cell:nth-child(3) img {
+  position: absolute;
+  left: -117px;
+  top: -2px;
+}
+
+.main-header_gameboard_row:nth-child(1) .main-header_gameboard_cell {
+  border-top: none;
+}
+
+.main-header_gameboard_row:nth-child(3) .main-header_gameboard_cell {
+  border-bottom: none;
+}
+
+.main-header_gameboard_row .main-header_gameboard_cell:nth-child(1) {
+  border-left: none;
+}
+.main-header_gameboard_row .main-header_gameboard_cell:nth-child(3) {
+  border-right: none;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+}
+
+
+.main-game-container {
+  background: #fcb045;
+}
+
+.players-list {
+  background: #330154;
+  padding: 1rem 2rem;
+  list-style: none;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid green;
+}
+
+
+
+/* PLAYER COMPONENT  */
+
+.player-item {
+  margin: 0 1rem;
+  flex: 1;
+  display:flex;
+}
+
+.player {
+  display: flex;
+  border: 1px solid red;
+  background: #fff;
+  padding: 0.25rem;
+  align-items: center;
+  width: 20rem;
+}
+
+.player .player-name, 
+input {
+  flex: 1;
+  color: #3d3d3d;
+}
+
+.toe-bean {
+  display: inline-block;
+  width: 25px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+}
+
+.toe-bean.black-black {
+  background: #685F74;
+background: radial-gradient(circle farthest-side at 35% 25%, #685F74 0%, #2D143D 43%, #0B050F 100%);
+}
+
+.toe-bean.white-pink {
+  background: #F5C8EF;
+background: radial-gradient(circle farthest-side at 35% 25%, #F5C8EF 0%, #EE66AA 43%, #EA4C89 100%);
+
+}
