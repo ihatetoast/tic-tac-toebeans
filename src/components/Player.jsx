@@ -15,9 +15,10 @@ const Player = ({  defaultName, playerBeans, onChangePlayer }) => {
     setPlayerName(final);
   }
   
-  setIsEditing((prevState) => !prevState);
+  setIsEditing((prevEditState) => !prevEditState);
   
   if (!isEditing) {
+    // reset
     setPlayerName('');
   }
 }
@@ -35,7 +36,7 @@ const Player = ({  defaultName, playerBeans, onChangePlayer }) => {
     <li className='player-item'>
       <span className="player">
         {content}
-        <span className={`toe-bean ${playerBeans}`} />
+        <span className={`toe-bean ${playerBeans}`} role="img" aria-label={`${playerBeans} toe bean`}/>
       </span>
       <button onClick={handleEditPlayer}>{isEditing ? 'Save' : 'Edit'}</button>
     </li>

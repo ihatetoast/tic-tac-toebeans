@@ -9,6 +9,10 @@ Tic-tac-toe / naughts and crosses game built with React using Vite. Players 1 an
 
 I've had "tic tac toebeans" stuck in my head for a long time, so I thought just getting the tic-tac-toe game with paws instead of naughts and crosses will help manage my senility.
 
+## What About
+
+Accessibility? Yes, this would not be a game for those with visual impairments. Ideally, there'd be some other ways to identify the player's symbol. The reason I am making this is for a reason to do the paws and toebeans via CSS. Attempting to solve the issue by using role="img" and aria-label="pink (or black) toe bean", etc.
+
 ---
 
 

@@ -3,17 +3,18 @@ import Player from './components/Player.jsx';
 
 // combinations for wins:
 import { WIN_OPTIONS } from './win-options.js';
+import TicTacToeGrid from './components/TicTacToeGrid.jsx';
 
 const GAME_PLAYERS = [
   {
     id: 1,
     playerName: 'Nana',
-    playerTheme: 'black-black',
+    playerTheme: 'black',
   },
   {
     id: 2,
     playerName: 'Pusspuss',
-    playerTheme: 'white-pink',
+    playerTheme: 'pink',
   },
 ];
 
@@ -44,7 +45,7 @@ function App() {
             />);
           })}
         </ol>
-        <span>where gameboard will go</span>
+       <TicTacToeGrid />
       </div>
       <span>maybe game details or message</span>
     </main>

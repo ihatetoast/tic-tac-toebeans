@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
 
   color: #ebe7ef;
@@ -31,6 +31,21 @@ body {
 }
 
 /* HEADER index.html, not react component  */
+
+h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
+}
+
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /* header's tic tac toe board with paw images  */
 .main-header_gameboard_row {
@@ -89,13 +104,6 @@ body {
   border-right: none;
 }
 
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
-  text-align: center;
-  margin: 0 auto 2rem auto;
-}
 
 
 .main-game-container {
@@ -105,7 +113,6 @@ h1 {
 .players-list {
   background: #330154;
   padding: 1rem 2rem;
-  list-style: none;
   padding: 1rem 2rem;
   display: flex;
   justify-content: center;
@@ -124,8 +131,10 @@ h1 {
 
 .player {
   display: flex;
-  border: 1px solid red;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
   background: #fff;
+  font-weight: 700;
   padding: 0.25rem;
   align-items: center;
   width: 20rem;
@@ -145,13 +154,24 @@ input {
   margin: 0 0.5rem;
 }
 
-.toe-bean.black-black {
+.toe-bean.black {
   background: #685F74;
 background: radial-gradient(circle farthest-side at 35% 25%, #685F74 0%, #2D143D 43%, #0B050F 100%);
 }
 
-.toe-bean.white-pink {
+.toe-bean.pink {
   background: #F5C8EF;
 background: radial-gradient(circle farthest-side at 35% 25%, #F5C8EF 0%, #EE66AA 43%, #EA4C89 100%);
 
+}
+
+/* GRID AND GAME  */
+
+.game-row .row-columns {
+  display: flex;
+}
+
+.game-row .row-columns .game-btn {
+  height: 140px;
+  width: 140px;
 }
