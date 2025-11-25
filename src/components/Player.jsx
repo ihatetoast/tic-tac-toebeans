@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
 
-const Player = ({  defaultName, playerBeans, onChangePlayer }) => {
+const Player = ({  defaultName, playerBeans, onChangePlayer, activePlayer }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(defaultName);
-
- 
 
   function handleEditPlayer() {
   if (isEditing) {
@@ -18,7 +16,6 @@ const Player = ({  defaultName, playerBeans, onChangePlayer }) => {
   setIsEditing((prevEditState) => !prevEditState);
   
   if (!isEditing) {
-    // reset
     setPlayerName('');
   }
 }
@@ -34,7 +31,7 @@ const Player = ({  defaultName, playerBeans, onChangePlayer }) => {
 
   return (
     <li className='player-item'>
-      <span className="player">
+      <span className={"player" + (activePlayer ? ` active-player-${playerBeans}` : '')}>
         {content}
         <span className={`toe-bean ${playerBeans}`} role="img" aria-label={`${playerBeans} toe bean`}/>
       </span>
