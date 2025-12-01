@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-const Player = ({  defaultName, playerBeans, onChangePlayer, activePlayer }) => {
+const Player = ({  defaultName, playerBeans, onChangePlayer, activePlayer, id }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(defaultName);
 
@@ -9,7 +9,7 @@ const Player = ({  defaultName, playerBeans, onChangePlayer, activePlayer }) => 
   if (isEditing) {
     const trimmed = playerName.trim();
     const final = trimmed === '' ? defaultName : trimmed;
-    onChangePlayer( final);
+    onChangePlayer(id, final);
     setPlayerName(final);
   }
   

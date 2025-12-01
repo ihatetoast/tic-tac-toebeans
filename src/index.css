@@ -23,9 +23,18 @@ body {
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
   min-height: 110rem;
+  margin: 0;
 }
 
 /* HEADER index.html, not react component  */
+
+header {
+      display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.25rem;
+}
 
 h1 {
   font-family: 'Merriweather', serif;
@@ -104,8 +113,6 @@ ul {
 }
 
 .players-list {
-  background: #fdeba5;
-  padding: 1rem 2rem;
   padding: 1rem 2rem;
   display: flex;
   justify-content: center;
@@ -115,8 +122,8 @@ ul {
 
 .player-item {
   margin: 0 1rem;
-  flex: 1;
   display: flex;
+  justify-content: center;
 }
 
 .player.active-player-black {
@@ -209,4 +216,18 @@ input {
 
 .paw.pink {
   background-color: pink;
+}
+
+
+/* LOG COMPONENT  */
+.log {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.log p {
+  margin:0;
 }
