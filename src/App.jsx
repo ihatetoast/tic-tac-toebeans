@@ -76,18 +76,11 @@ function App() {
     })
   }
 
-  if(winner){
-    // get name of winner, but for now just log
-  console.log("the winner is: ", winner);
+  function handleGameReset(){
+    setGameGrid(INITIAL_GAME_GRID);
+    setTurns(0);
+    setActivePlayer('black');
   }
-
-
-
-  // function handleGameReset(){
-  //   setGameGrid(INITIAL_GAME_GRID);
-  //   setTurns(0);
-  //   setActivePlayer('black');
-  // }
 
   return (
     <main>
@@ -110,7 +103,7 @@ function App() {
           <TicTacToeBoard gameGrid={gameGrid} onSquareClick={handleSelectCell} setDisabled={gameIsOver}/>
         </div>
       </div>
-      <Log activePlayer={players.find((player) => player.playerTheme === activePlayer)} turns={turns} result={gameIsTied ? 'tie' : winner} />
+      <Log activePlayer={players.find((player) => player.playerTheme === activePlayer)} turns={turns} result={gameIsTied ? 'tie' : winner} handleClick={handleGameReset}/>
     </main>
   );
 }
