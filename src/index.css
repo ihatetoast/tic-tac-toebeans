@@ -5,12 +5,11 @@
   --color-black-light: #685f74;
   --color-black-lightest: #bababa;
   --color-yellow: #fcb045;
-  --color-purple: #833ab4;
-  --color-red: #fd1d1d;
-  --color-pink: #ea4c89;
-  --color-pink-med: #ee66aa;
-  --color-pink-light: #f5c8ef;
-  --color-pink-lightest: #fae5f7;
+  --color-purple: #4f1091;
+  --color-pink: #ff0066;
+  --color-pink-med: #FF85B6;
+  --color-pink-light: #FFC2Da;
+  --color-pink-lightest: #FFD6E7;
   --paw-width: 32%;
 }
 
@@ -31,7 +30,7 @@ html {
 
 body {
   background: var(--color-purple);
-  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-yellow) 10%,var(--color-yellow) 40%, var(--color-red) 50%);
+  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-yellow) 15%);
   background-repeat: repeat;
   min-height: 200vh;
   margin: 0;
@@ -89,7 +88,8 @@ main {
 }
 
 .player-item button {
-  background-color: var(--color-yellow);
+  background-color: var(--color-purple);
+  color: #fff;
   border: none;
   border-radius: 0.25rem;
   font-weight: 700;
@@ -127,9 +127,9 @@ input {
 
 
 .main-header_gameboard_cell {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #000;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
   position: relative;
   overflow: hidden;
   background-color: #fff;
@@ -139,7 +139,7 @@ input {
 
 .main-header_gameboard_cell img {
   width: auto; /* Changed from 100% */
-  height: 90px;
+  height: 50px;
   object-fit: cover;
 }
 
@@ -151,13 +151,13 @@ input {
 
 .main-header_gameboard_cell:nth-child(2) img {
   position: absolute;
-  left: -58px;
+  left: -33px;
   top: -2px;
 }
 
 .main-header_gameboard_cell:nth-child(3) img {
   position: absolute;
-  left: -117px;
+  left: -66px;
   top: -2px;
 }
 
@@ -193,6 +193,7 @@ input {
   border-radius: 50%;
 }
 
+.leg-container.black .bean, .leg-container.black .bottom-pad,
 .toe-bean.black {
   background: #685f74;
   background: radial-gradient(
@@ -203,6 +204,7 @@ input {
   );
 }
 
+.leg-container.pink .bean, .leg-container.pink .bottom-pad,
 .toe-bean.pink {
   background: #f5c8ef;
   background: radial-gradient(
@@ -333,26 +335,6 @@ input {
     border-radius: 37%
 }
 
-
-.leg-container.pink .bean, .leg-container.pink .bottom-pad {
-  background: #f5c8ef;
-  background: radial-gradient(
-    circle farthest-side at 50% 25%,
-    var(--color-pink-light) 0%,
-    var(--color-pink-med) 43%,
-    var(--color-pink) 100%
-  );
-}
-.leg-container.black .bean, .leg-container.black .bottom-pad {
-  background: #685f74;
-  background: radial-gradient(
-    circle farthest-side at 50% 25%,
-    var(--color-black-light) 0%,
-    var(--color-black-med) 43%,
-    var(--color-black) 100%
-  );
-}
-
 /* LOG COMPONENT  */
 .log {
   padding: 0 1rem;
@@ -368,10 +350,9 @@ input {
 
 
 @media screen and (min-width: 768px) {
-
   header {
     justify-content: flex-start;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     gap: 2rem;
   }
 
