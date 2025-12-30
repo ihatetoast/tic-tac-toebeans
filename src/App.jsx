@@ -29,10 +29,6 @@ const INITIAL_GAME_GRID = [
   function determineWinner(gameGrid){
     let winner;
     for(const combo of WIN_OPTIONS){
-      // does my head in. 
-      // gist is every combo--an array of three objects that match to a cell in winning combo
-      // assign square one to three the values in those cells.
-      // checks by rows, then cols, then diags
       const squareOne = gameGrid[combo[0].row][combo[0].col];
       const squareTwo = gameGrid[combo[1].row][combo[1].col];
       const squareThree = gameGrid[combo[2].row][combo[2].col];
@@ -55,10 +51,10 @@ function App() {
   const [activePlayer, setActivePlayer]=useState('black');
   const winner = determineWinner(gameGrid, activePlayer);
   const gameIsTied = !winner && turns === 9;
-  console.log("game is tied: ", gameIsTied);
+  const gameIsOver = (winner !== undefined) || gameIsTied;
 
   function handlePlayerNameChange(id, newName) {
-    // map through players, match index, update that name. otherwise return player
+    // map through players, match index, update that name; otherwise, return player
     setPlayers((prevPlayers) =>
       prevPlayers.map((player) =>
         player.id === id ? { ...player, playerName: newName } : player
@@ -68,21 +64,18 @@ function App() {
 
   function handleSelectCell(rowIdx, colIdx){
     setTurns((prevTurns)=> prevTurns + 1);
-
     setActivePlayer((prevActivePlayer)=> {
       return prevActivePlayer === 'black' ? 'pink' : 'black';
     });
     
-
     setGameGrid((prevGrid) => {
-      // makey the changey with a deeeep copy
+      //  deeeep copy with the double spread
       const prevGridDeepCopy = [...prevGrid.map(innerRow => [...innerRow])];
       prevGridDeepCopy[rowIdx][colIdx] = activePlayer;
-       // returny the griddy
       return prevGridDeepCopy;
     })
   }
-  console.log("turns in App:", turns);
+
   if(winner){
     // get name of winner, but for now just log
   console.log("the winner is: ", winner);
@@ -90,12 +83,12 @@ function App() {
 
 
 
-  function handleGameReset(){
-    setGameGrid(INITIAL_GAME_GRID);
-    setTurns(0);
-    setActivePlayer('black');
-  }
-console.log("PLAYERS: ",players);
+  // function handleGameReset(){
+  //   setGameGrid(INITIAL_GAME_GRID);
+  //   setTurns(0);
+  //   setActivePlayer('black');
+  // }
+
   return (
     <main>
       <div className='main-game-container'>
@@ -114,10 +107,10 @@ console.log("PLAYERS: ",players);
           })}
         </ol>
         <div className='grid-container'>
-          <TicTacToeBoard gameGrid={gameGrid} onSquareClick={handleSelectCell}/>
+          <TicTacToeBoard gameGrid={gameGrid} onSquareClick={handleSelectCell} setDisabled={gameIsOver}/>
         </div>
       </div>
-      <Log activePlayer={players.find((player) => player.playerTheme === activePlayer)}  />
+      <Log activePlayer={players.find((player) => player.playerTheme === activePlayer)} turns={turns} result={gameIsTied ? 'tie' : winner} />
     </main>
   );
 }

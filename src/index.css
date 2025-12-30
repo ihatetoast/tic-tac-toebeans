@@ -1,47 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;700&display=swap');
+:root {
+  --color-black: #0b050f;
+  --color-black-med: #2d143d;
+  --color-black-light: #685f74;
+  --color-black-lightest: #bababa;
+  --color-yellow: #fcb045;
+  --color-purple: #833ab4;
+  --color-red: #fd1d1d;
+  --color-pink: #ea4c89;
+  --color-pink-med: #ee66aa;
+  --color-pink-light: #f5c8ef;
+  --color-pink-lightest: #fae5f7;
+  --paw-width: 32%;
+}
 
 * {
   box-sizing: border-box;
+  
 }
 
 html {
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.5;
-
-  color: #ebe7ef;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: #833ab4;
-  background: linear-gradient(180deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  background: var(--color-purple);
+  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-yellow) 10%,var(--color-yellow) 40%, var(--color-red) 50%);
   background-repeat: repeat;
-  background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+  min-height: 200vh;
   margin: 0;
-}
-
-/* HEADER index.html, not react component  */
-
-header {
-      display: flex;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.25rem;
-}
-
-h1 {
-  font-family: 'Merriweather', serif;
-  font-weight: 700;
-  font-size: 3rem;
-  text-align: center;
-  margin: 0;
+  padding: 0;
 }
 
 ol,
@@ -51,12 +45,86 @@ ul {
   margin: 0;
 }
 
+/* HEADER index.html, not react component  */
+header {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  text-align: center;
+  margin: 0;
+}
+
 /* header's tic tac toe board with paw images  */
 .main-header_gameboard_row {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+main {
+  padding-top: 0.5rem;
+}
+
+
+/* PLAYER COMPONENT  */
+.player-item {
+  margin: 0.25rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.player-item input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.player-item button {
+  background-color: var(--color-yellow);
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  height: 50px;
+  margin-left: 5px;
+  padding: 0;
+  width: 50px;
+
+}
+
+.player.active-player-black {
+border: 2px solid var(--);
+}
+
+.player.active-player-pink {
+border: 2px solid var(--color-pink);
+}
+
+.player {
+  display: flex;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  background: #fff;
+  font-weight: 700;
+  padding: 0.25rem;
+  align-items: center;
+  width: 240px;
+}
+
+.player .player-name,
+input {
+  flex: 1;
+  color: #3d3d3d;
+}
+
 
 .main-header_gameboard_cell {
   width: 40px;
@@ -108,89 +176,60 @@ ul {
   border-right: none;
 }
 
-.main-game-container {
-  background: #fd7f28;
-}
 
 .players-list {
-  padding: 1rem 2rem;
+  padding: 0 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-/* PLAYER COMPONENT  */
-
-.player-item {
-  margin: 0 1rem;
-  display: flex;
-  justify-content: center;
-}
-
-.player.active-player-black {
-border: 2px solid #0b050f;
-}
-
-.player.active-player-pink {
-border: 2px solid #ea4c89;
-}
-
-.player {
-  display: flex;
-  border: 2px solid transparent;
-  border-radius: 0.25rem;
-  background: #fff;
-  font-weight: 700;
-  padding: 0.25rem;
-  align-items: center;
-  width: 20rem;
-}
-
-.player .player-name,
-input {
-  flex: 1;
-  color: #3d3d3d;
-}
 
 .toe-bean {
   display: inline-block;
   width: 25px;
   height: 35px;
-  border-radius: 50%;
   margin: 0 0.5rem;
+  border-radius: 50%;
 }
 
 .toe-bean.black {
   background: #685f74;
   background: radial-gradient(
-    circle farthest-side at 35% 25%,
-    #685f74 0%,
-    #2d143d 43%,
-    #0b050f 100%
+    circle farthest-side at 50% 25%,
+    var(--color-black-light) 0%,
+    var(--color-black-med) 43%,
+    var(--color-black) 100%
   );
 }
 
 .toe-bean.pink {
   background: #f5c8ef;
   background: radial-gradient(
-    circle farthest-side at 35% 25%,
-    #f5c8ef 0%,
-    #ee66aa 43%,
-    #ea4c89 100%
+    circle farthest-side at 50% 25%,
+    var(--color-pink-light) 0%,
+    var(--color-pink-med) 43%,
+    var(--color-pink) 100%
   );
 }
 
 /* GRID AND GAME  */
 
 .grid-container {
-  display: flex;
-  justify-content: center;
+  background-color: #fff;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 1rem auto;
   padding: 1rem;
 }
 .grid-container .game-btn {
   border-radius: 5px;
   margin: 0.25rem;
-    height: 140px;
-  width: 140px;
+}
+
+.game-btn, .leg-container {
+  height: 96px;
+  width: 96px;
 }
 
 .grid-container .game-btn:hover {
@@ -201,33 +240,174 @@ input {
   display: flex;
 }
 
-/* PAW COMPONENT  */ 
 
-.paw {
+
+.leg-container {
   border-radius: 5px;
   margin: 0.25rem;
-  height: 140px;
-  width: 140px;
+  position: relative;
 }
 
-.paw.black {
-  background-color: black;
+
+.leg-container.black {
+  background-color: var(--color-black);
+}
+.leg-container.black .leg {
+  background-color: var(--color-black-lightest);
 }
 
-.paw.pink {
-  background-color: pink;
+.leg-container.pink {
+  background-color: var(--color-pink);
+}
+.leg-container.pink .leg{
+  background-color: var(--color-pink-lightest);
 }
 
+/* KATY KATY YOU ARE HERE  */
+
+.leg-container .leg {
+  position: absolute;
+  width: var(--paw-width);
+  height: 70%;
+  bottom: 0;
+  left: calc((100% - var(--paw-width)) / 2); 
+}
+
+/* helper divs for the middle toes  */
+.paw-middle {
+  position: absolute;
+  background:#fff;
+  border-radius: 50%;
+  width: 50%;
+  height: 25%;
+  top:-20%;
+}
+.paw-middle.left {
+  left: 15%;
+}
+.paw-middle.right {
+  left: 38%;
+}
+
+.paw {
+  position:absolute;
+  width: 100%;
+  height: 50%;
+  background: #fff;
+  border-radius: 41% 39% 50% 50% / 34% 34% 50% 51% ;
+  top: -15%;
+}
+
+.bean, .bottom-pad {
+  position: absolute;
+}
+
+.bean {
+  width: 20%;
+  height: 30%;
+  border-radius: 36%;
+}
+
+.left-bean {
+  left: 6%;
+  top: 19%;
+}
+.inner-left-bean {
+  left: 27%;
+    top: -2%;
+}
+.inner-right-bean {
+  left: 54%;
+  top: -2%;
+}
+.right-bean {
+  left: 76%;
+  top: 19%;
+}
+.bottom-pad {
+  height: 25%;
+    background: blue;
+    width: 50%;
+    left: 25%;
+    top: 43%;
+    border-radius: 37%
+}
+
+
+.leg-container.pink .bean, .leg-container.pink .bottom-pad {
+  background: #f5c8ef;
+  background: radial-gradient(
+    circle farthest-side at 50% 25%,
+    var(--color-pink-light) 0%,
+    var(--color-pink-med) 43%,
+    var(--color-pink) 100%
+  );
+}
+.leg-container.black .bean, .leg-container.black .bottom-pad {
+  background: #685f74;
+  background: radial-gradient(
+    circle farthest-side at 50% 25%,
+    var(--color-black-light) 0%,
+    var(--color-black-med) 43%,
+    var(--color-black) 100%
+  );
+}
 
 /* LOG COMPONENT  */
 .log {
-  padding: 1rem 2rem;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 90%;
+  align-items: flex-start;
   margin: 0 auto;
 }
 .log p {
-  margin:0;
+  margin: 0;
+  margin-bottom: 8px;
 }
+
+
+@media screen and (min-width: 768px) {
+
+  header {
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .game-btn, .leg-container {
+    height: 120px;
+    width: 120px;
+  }
+
+  .player {
+    width: 330px;
+  }
+
+  .log {
+    width: 70%;
+}
+
+}
+@media screen and (min-width: 1100px) {
+  header {
+    justify-content: center;
+  }
+
+.game-btn, .leg-container {
+    height: 150px;
+    width: 150px;
+  }
+
+  .players-list {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .log {
+    width: 50%;
+    font-size: 1.25rem;
+  }
+
+}
+

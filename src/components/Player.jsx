@@ -40,7 +40,3 @@ const Player = ({  defaultName, playerBeans, onChangePlayer, activePlayer, id })
   );
 };
 export default Player;
-
-
-// player-paw will handle the shape. playerBeans will add the color theme. 
-// after logic
